@@ -1,0 +1,6 @@
+{
+  "name": "1PH — First Principles of Health",
+  "description": "Understand before you act. 1PH (First Principles of Health) is a global health education company helping people understand what is actually happening inside their bodies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

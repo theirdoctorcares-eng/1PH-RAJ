@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Pure daylight open sky palette */
+    --sky-top: #A9DDF7;
+    --sky-mid: #BFE7FA;
+    --sky-bottom: #DDF3FC;
+    --text-primary: #111111;
+    --text-secondary: #4A5568;
+    --text-tertiary: #6B7280;
+    --border-subtle: rgba(17, 24, 39, 0.08);
+    --border-light: rgba(17, 24, 39, 0.12);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+    background-color: #BFE7FA;
+    color: #111111;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ========================================================================= */
+/* CONTINUOUS HORIZONTAL DRIFTING SKY KEYFRAMES                              */
+/* Slow, natural, clearly visible drifting from offscreen (-45vw) to (145vw) */
+/* Distant (120-180s) | Main/Mid (70-120s) | Near (50-90s)                   */
+/* ========================================================================= */
+
+@keyframes cloudDriftL2R {
+  0% {
+    transform: translate3d(-40vw, 0, 0);
+  }
+  100% {
+    transform: translate3d(140vw, 0, 0);
+  }
+}
+
+@keyframes cloudDriftR2L {
+  0% {
+    transform: translate3d(140vw, 0, 0);
+  }
+  100% {
+    transform: translate3d(-40vw, 0, 0);
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* 1. NEAR CLOUDS (50s – 90s): Slightly faster, soft atmospheric edges       */
+/* ------------------------------------------------------------------------- */
+.animate-cloud-near-1 {
+  animation: cloudDriftL2R 56s linear infinite;
+  animation-delay: -14s;
+}
+
+.animate-cloud-near-2 {
+  animation: cloudDriftR2L 62s linear infinite;
+  animation-delay: -34s;
+}
+
+.animate-cloud-near-3 {
+  animation: cloudDriftL2R 72s linear infinite;
+  animation-delay: -22s;
+}
+
+.animate-cloud-near-4 {
+  animation: cloudDriftR2L 68s linear infinite;
+  animation-delay: -48s;
+}
+
+.animate-cloud-near-5 {
+  animation: cloudDriftL2R 80s linear infinite;
+  animation-delay: -10s;
+}
+
+/* ------------------------------------------------------------------------- */
+/* 2. MAIN / MID CLOUDS (70s – 120s): Large fluffy clouds, bright white      */
+/* ------------------------------------------------------------------------- */
+.animate-cloud-mid-1 {
+  animation: cloudDriftL2R 78s linear infinite;
+  animation-delay: -28s;
+}
+
+.animate-cloud-mid-2 {
+  animation: cloudDriftR2L 86s linear infinite;
+  animation-delay: -52s;
+}
+
+.animate-cloud-mid-3 {
+  animation: cloudDriftL2R 92s linear infinite;
+  animation-delay: -15s;
+}
+
+.animate-cloud-mid-4 {
+  animation: cloudDriftR2L 98s linear infinite;
+  animation-delay: -42s;
+}
+
+.animate-cloud-mid-5 {
+  animation: cloudDriftL2R 105s linear infinite;
+  animation-delay: -68s;
+}
+
+.animate-cloud-mid-6 {
+  animation: cloudDriftR2L 114s linear infinite;
+  animation-delay: -30s;
+}
+
+/* ------------------------------------------------------------------------- */
+/* 3. DISTANT / FAR CLOUDS (120s – 180s): Very slow, gentle haze & depth     */
+/* ------------------------------------------------------------------------- */
+.animate-cloud-far-1 {
+  animation: cloudDriftL2R 126s linear infinite;
+  animation-delay: -45s;
+}
+
+.animate-cloud-far-2 {
+  animation: cloudDriftR2L 138s linear infinite;
+  animation-delay: -90s;
+}
+
+.animate-cloud-far-3 {
+  animation: cloudDriftL2R 148s linear infinite;
+  animation-delay: -25s;
+}
+
+.animate-cloud-far-4 {
+  animation: cloudDriftR2L 162s linear infinite;
+  animation-delay: -80s;
+}
+
+.animate-cloud-far-5 {
+  animation: cloudDriftL2R 175s linear infinite;
+  animation-delay: -110s;
+}
+
+/* ========================================================================= */
+/* NATURAL ORGANIC CLOUD PUFF MORPHOLOGIES (No cartoon SVGs or sharp icons)  */
+/* ========================================================================= */
+.cloud-dome {
+  border-radius: 46% 54% 42% 58% / 56% 58% 42% 44%;
+}
+
+.cloud-stream {
+  border-radius: 64% 36% 70% 30% / 44% 60% 40% 56%;
+}
+
+.cloud-puff {
+  border-radius: 52% 48% 54% 46% / 50% 52% 48% 50%;
+}
+
+.cloud-taper {
+  border-radius: 68% 32% 58% 42% / 38% 48% 52% 62%;
+}
+
+.cloud-multilobe {
+  border-radius: 45% 55% 48% 52% / 58% 50% 50% 42%;
+}
+
+/* Soft internal sunlight highlights & natural sky shadows */
+.cloud-volumetric-sun {
+  box-shadow: 
+    0 24px 60px rgba(130, 175, 204, 0.45),
+    0 4px 20px rgba(255, 255, 255, 0.8) inset,
+    0 -10px 24px rgba(255, 248, 235, 0.3) inset;
+}
+
+.cloud-volumetric-ambient {
+  box-shadow: 
+    0 20px 50px rgba(135, 178, 205, 0.4),
+    0 4px 16px rgba(255, 255, 255, 0.7) inset;
+}
+
+.cloud-volumetric-soft {
+  box-shadow: 
+    0 14px 38px rgba(140, 180, 208, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cloud-near-1,
+  .animate-cloud-near-2,
+  .animate-cloud-near-3,
+  .animate-cloud-near-4,
+  .animate-cloud-near-5,
+  .animate-cloud-mid-1,
+  .animate-cloud-mid-2,
+  .animate-cloud-mid-3,
+  .animate-cloud-mid-4,
+  .animate-cloud-mid-5,
+  .animate-cloud-mid-6,
+  .animate-cloud-far-1,
+  .animate-cloud-far-2,
+  .animate-cloud-far-3,
+  .animate-cloud-far-4,
+  .animate-cloud-far-5 {
+    animation: none !important;
+  }
+}
